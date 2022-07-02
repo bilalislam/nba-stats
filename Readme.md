@@ -19,6 +19,7 @@ $ docker run nba-stats
 1. it does not print the results yet
 2. all unit tests has not been finished yet
 3. gui has not yet and just running as a binary
+4. just I could resolved the problem during 12 hours :( 
 
 
 
