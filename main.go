@@ -6,14 +6,7 @@ import (
 	"time"
 )
 
-/*
-* go routin
-* unit test
-* uı
-* show score to stdout
-* clean architure
-* todo : ticker ile 5 sn bir call et , toplam 48 kere call yapılabilir , os.exit(-1)
- */
+//todo: amac 5snde bir cagrılmasını kontrol etmek
 func main() {
 	s1 := rand.NewSource(time.Now().UnixNano())
 	r1 := rand.New(s1)
