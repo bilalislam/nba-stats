@@ -33,10 +33,10 @@ func main() {
 					fmt.Println(team.AttackCount)
 					fmt.Println(team.ScoreCount)
 					for _, player := range team.Players {
-						fmt.Println(player.Name)
-						fmt.Println(player.SuccessCount)
-						fmt.Println(player.AssistCount)
-						fmt.Println(player.FailureCount)
+						fmt.Printf("%s Success Count : %d \n", player.Name, player.SuccessCount)
+						fmt.Printf("%s Assist Count : %d \n", player.Name, player.AssistCount)
+						fmt.Printf("%s Failure Count %d \n", player.Name, player.FailureCount)
+						fmt.Println()
 					}
 				}
 			}
