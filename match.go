@@ -2,17 +2,16 @@ package main
 
 import (
 	"errors"
-	"math/rand"
 	"time"
 )
 
 type Match struct {
 	Teams  map[TeamKey]*Team
 	Time   time.Duration
-	Random *rand.Rand
+	Random Interface
 }
 
-func NewMatch(teamA *Team, teamB *Team, rnd *rand.Rand) Match {
+func NewMatch(teamA *Team, teamB *Team, rnd Interface) Match {
 	return Match{
 		Random: rnd,
 		Teams: map[TeamKey]*Team{
@@ -26,8 +25,10 @@ func NewMatch(teamA *Team, teamB *Team, rnd *rand.Rand) Match {
 // main'de 1 dk = 5sn , 48 dk = 240 sn (bu hesabın play ile ilgisi yok)
 // yani play 1 dk olarak herşeyi hesaplacak
 // yani 24 sn lik attack'ın 5 snlik mac ile ilgisi yok, Gercek dünyada mac'ın suresinden düşülecek .
+// hangi takıma denk geldiyse o takım 5sn içinde 60sn max duration olmak sartıyla attack'a kalkar,5sn içinde kac attack yaparsa yapar
+// tüm 60sn lik süre içinde sonuna kadar beklemez, 5sn dolarsa biter.Takım attack'a kalkamaz.
 // todo: unit test
-func (m Match) Play() error {
+func (m *Match) Play() error {
 
 	if m.Time > time.Minute*47 {
 		return errors.New("match has been finished")
@@ -50,6 +51,6 @@ func (m Match) Play() error {
 	return nil
 }
 
-func (m Match) attack(key TeamKey) {
+func (m *Match) attack(key TeamKey) {
 	m.Teams[key].Attack()
 }

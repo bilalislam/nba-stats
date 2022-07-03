@@ -18,6 +18,9 @@ func (m *mockRandom) Float64() float64 {
 
 func (m *mockRandom) Intn(n int) int {
 	m.index++
+	if m.index == 2 {
+		m.index = 0
+	}
 	return m.intValue[m.index]
 }
 

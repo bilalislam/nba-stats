@@ -11,7 +11,7 @@ func main() {
 	s1 := rand.NewSource(time.Now().UnixNano())
 	r1 := rand.New(s1)
 
-	numberOfMatch := 1
+	numberOfMatch := 2
 	var wg sync.WaitGroup
 	wg.Add(numberOfMatch)
 	for i := 0; i < numberOfMatch; i++ {
