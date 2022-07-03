@@ -1,5 +1,5 @@
 ## Requirements
-- You will need go 1.18 +
+- You will need go 1.16 +
 
 ## How to use
 ps: total 4 minutes wait and all match will finalized.
