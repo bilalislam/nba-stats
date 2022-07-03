@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"math/rand"
 	"sync"
 	"time"
@@ -23,9 +24,20 @@ func main() {
 			ticker := time.NewTicker(5 * time.Second)
 			for i := 0; i < 48; i++ {
 				<-ticker.C // 5sn boyunca bekleyecek
-				err := m.Play()
+				err, match := m.Play()
 				if err != nil {
 					return
+				}
+				for key, team := range match.Teams {
+					fmt.Println(key)
+					fmt.Println(team.AttackCount)
+					fmt.Println(team.ScoreCount)
+					for _, player := range team.Players {
+						fmt.Println(player.Name)
+						fmt.Println(player.SuccessCount)
+						fmt.Println(player.AssistCount)
+						fmt.Println(player.FailureCount)
+					}
 				}
 			}
 			ticker.Stop()

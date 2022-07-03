@@ -30,7 +30,7 @@ func TestPlay_Should_ThrowError_When_TimeHasFinished(t *testing.T) {
 	m := NewMatch(&teamA, &teamB, &rnd)
 	m.Time = time.Minute * 48
 
-	err := m.Play()
+	err, _ := m.Play()
 	assert.EqualError(t, err, "match has been finished")
 }
 
@@ -51,7 +51,10 @@ func TestPlay_Should_AttackForTeamA_WhenAttackCountIsThreeAndScoreIsNine(t *test
 	teamB := NewTeam(&rndForTeam)
 	m := NewMatch(&teamA, &teamB, &rndForMatch)
 
-	err := m.Play()
+	err, _ := m.Play()
+	if err != nil {
+		return
+	}
 	assert.EqualValues(t, nil, err)
 	assert.EqualValues(t, time.Minute, m.Time)
 	assert.EqualValues(t, 3, teamA.AttackCount)
@@ -74,7 +77,7 @@ func TestPlay_Should_AttackForTeamB_WhenAttackCountIsSixAndScoreCountIsTwelve(t 
 	teamB := NewTeam(&rndForTeam)
 	m := NewMatch(&teamA, &teamB, &rndForMatch)
 
-	err := m.Play()
+	err, _ := m.Play()
 	assert.EqualValues(t, nil, err)
 	assert.EqualValues(t, time.Minute, m.Time)
 	assert.EqualValues(t, 6, teamB.AttackCount)
