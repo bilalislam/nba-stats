@@ -58,7 +58,7 @@ func TestPlay_Should_AttackForTeamA_WhenAttackCountIsThreeAndScoreIsNine(t *test
 	assert.EqualValues(t, 9, teamA.ScoreCount)
 }
 
-func TestPlay_Should_AttackForTeamB(t *testing.T) {
+func TestPlay_Should_AttackForTeamB_WhenAttackCountIsSixAndScoreCountIsTwelve(t *testing.T) {
 	rndForMatch := mockRandomForMatch{
 		floatValue: 0.4,
 		intValue:   10,
