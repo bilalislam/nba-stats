@@ -27,7 +27,6 @@ func NewMatch(teamA *Team, teamB *Team, rnd Interface) Match {
 // yani 24 sn lik attack'ın 5 snlik mac ile ilgisi yok, Gercek dünyada mac'ın suresinden düşülecek .
 // hangi takıma denk geldiyse o takım 5sn içinde 60sn max duration olmak sartıyla attack'a kalkar,5sn içinde kac attack yaparsa yapar
 // tüm 60sn lik süre içinde sonuna kadar beklemez, 5sn dolarsa biter.Takım attack'a kalkamaz.
-// todo: unit test
 func (m *Match) Play() (error, *Match) {
 
 	if m.Time > time.Minute*47 {

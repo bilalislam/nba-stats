@@ -18,8 +18,8 @@ func main() {
 	for i := 0; i < numberOfMatch; i++ {
 		go func() {
 			defer wg.Done()
-			t1 := NewTeam(r1) // listeye ekle print için
-			t2 := NewTeam(r1) // listeye ekle print için
+			t1 := NewTeam(r1)
+			t2 := NewTeam(r1)
 			m := NewMatch(&t1, &t2, r1)
 			ticker := time.NewTicker(5 * time.Second)
 			for i := 0; i < 48; i++ {
@@ -44,6 +44,4 @@ func main() {
 		}()
 	}
 	wg.Wait()
-
-	// t1 ve t2 için print
 }
