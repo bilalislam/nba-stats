@@ -16,7 +16,7 @@ $ docker run nba-stats
 ```
 
 ## Known issue
-1. gui has not yet and just running as a binary 
+1. gui has not ready yet and just running as a binary 
 
 
 
